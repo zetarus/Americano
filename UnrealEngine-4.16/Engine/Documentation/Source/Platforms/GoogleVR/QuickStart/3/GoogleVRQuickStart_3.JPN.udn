@@ -1,0 +1,63 @@
+﻿INTSourceChangeList:3155346
+Availability:Public
+Title:3.Google VR プロジェクトをパックおよびデプロイする
+Crumbs:%ROOT%, Platforms/GoogleVR
+Description:Google VR で使用できる UE4 プロジェクトのパックとデプロイ方法
+Navigation:platform
+Skilllevel:Intermediate
+Version:4.12
+Parent:Platforms/GoogleVR/QuickStart
+order:3
+type:multi-step
+tags:VR
+tags:Google VR
+
+[NAV]
+
+次のセクションでは、UE4 プロジェクトをパッケージ化して、Google VR デバイスで動作するようにします。
+
+[region:note]
+次のステップに進む前に、使用する Android スマートフォンが USB で開発用 PC に接続されていることを確認してください。
+[/region]
+
+1. パッキングを開始するには、**Main Toolbar** で **[File]** > **[Package Project]** > **[Android]** > **[Android (ATC)]** を選択します。
+
+	![](GVRQS_Package_Project_00.png)
+
+1. Android(ATC) を選択したら、Windows ダイアログ ボックスが表示されます。このダイアログの **[Make New Folder (新規フォルダを作成)]** オプションを押して、 **「Androids_Builds」** という名前にします。フォルダが作成されたら、**[OK]** ボタンを押してパッキング処理を開始します。
+
+	![](GVRQS_Package_Project_Location_00.png)
+
+1. プロジェクトのパッキング処理中は、進捗バーが UE4 エディタの右下隅に表示されます。  
+
+	[region:tip]
+	パッキング処理中の詳細は、**[Output Log (出力ログ)]** ウィンドウに表示されます。
+	[/region]
+
+	![](GVRQS_Package_Progress_00.png)
+
+1. プロジェクトがパックされたら、「Androids_Builds」フォルダを開いて **「Install_GVR_QS_Development-armv7-es2.bat」** ファイルをダブルクリックして、Android スマートフォンにプロジェクトをインストールしてください。
+	[region:warning]
+	このセクションでの作業では、Android スマートフォンが開発用マシンに USB で接続されている必要があります。接続されていないと、プロジェクトがデバイスにインストールされません。 
+	[/region]
+	![](GVRQS_Android_Build_Files_00.png)
+
+1. 「.BAT」ファイルを実行すると、インストールの進捗状況を示すコマンドラインウィンドウが実行されます。インストールが完了すると、コマンドライン ウィンドウが自動的に閉じます。
+
+	![](GVRQS_Installing_To_Phone_00.png)
+
+1. マシンからスマートフォンを抜き、**GVR_QS** という名前のアプリを見つけて、GVR_QS アイコンをタップしてプロジェクトを起動します。ます。
+
+	![](GVRQS_App_Location_00.png)
+
+1. GVR_QS プロジェクトを VR ヘッドセットで見ると、以下のような画像になっているはずです。
+
+	![](GVRQS_HMD_View_00.png)
+
+	[region:note]
+	アプリケーションの実行中に **Gear** アイコンをクリックして、スマートフォンと UE4 が使用する VR デバイス用に適切に設定されていることを確認してください。 
+	![](GVRQS_HMD_Options_00.png)
+	このメニューから、VR デバイスの横にある QR コードをスキャンして、UE4 が VR デバイスと互換性のある画像を出力していることを確認することができます。
+	[/region]
+
+[NAV]

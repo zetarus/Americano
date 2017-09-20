@@ -1,0 +1,147 @@
+﻿INTSourceChangelist:3238275
+Availability:Docs
+Title:VR 스테레오 레이어
+Crumbs:%ROOT%, Platforms, Platforms/VR
+Description:VR Stereo Layer, 스테레오 레이어 셋업 및 작업 방법 안내입니다.
+Navigation:platform
+Version: 4.14
+parent:Platforms/VR
+type:overview
+Skilllevel: Intermediate
+tags:VR
+tags:Oculus Rift
+tags:GearVR
+tags:SteamVR
+tags:PSVR
+
+[TOC(start:2)]
+
+가상 현실 (VR) 스테레오 레이어로 VR 머리 장착 디스플레이(HMD)에 별도의 텍스처를 전송하고 나머지 프로젝트와 다른 독립 렌더링 패스에서 재투영시키는 것이 가능합니다. 이는 HMD 에 붙이고자 하는 UI 엘리먼트에 매우 유용하지만, 포스트 프로세싱이나 안티앨리어싱에 영향받지 않습니다. 여기서는 지원되는 모든 VR 플랫폼용 스테레오 레이어 셋업 및 사용 방법에 대해 다루겠습니다.
+
+
+## 지원 플랫폼
+
+VR 스테레오 레이어는 다음 VR 플랫폼에서만 작동합니다.
+
+* **Oculus VR**
+* **Gear VR**
+* **Steam VR**
+* **PSVR**
+
+## 스테레오 레이어 셋업
+
+**VR 폰** 에 스테레오 레이어를 사용하는 방법은 다음과 같습니다.
+
+1. 스테레오 레이어와 함꼐 사용하려는 **Pawn** 을 열고 **Viewport** 패널로 이동합니다.
+
+    [REGION:lightbox]
+    [![](VRSL_Pawn_Setup_01.png)(w:667)](VRSL_Pawn_Setup_01.png)
+    [/REGION]
+
+    [REGION:caption]
+    클릭하면 원본 이미지를 확인합니다.
+    [/REGION]
+
+1. **컴포넌트 추가** 버튼을 클릭하면 표시되는 드롭다운 목록에서 **Stereo Layer** 컴포넌트를 검색합니다. 찾았으면 클릭하여 **Pawn** 에 추가합니다.
+
+    [REGION:lightbox]
+    [![](VRSL_Pawn_Setup_02.png)(w:667)](VRSL_Pawn_Setup_02.png)
+    [/REGION]
+
+    [REGION:caption]
+    클릭하면 원본 이미지를 확인합니다.
+    [/REGION]
+
+1. 이제 **Stereo Layer 컴포넌트** 를 끌어 **Pawn** 의 카메라 위에 놓아 카메라의 자손 액터로 만듭니다.
+    
+    ![](VRSL_Pawn_Setup_03.png)(convert:false)
+
+1. 컴포넌트 목록에서 **Stereo Layer 컴포넌트** 를 선택한 뒤 **디테일 패널** 에서 **트랜스폼** 섹션 아래 **위치** 의 **X** 값을 **100** 으로 하여 VR 에서 잘 보이게 만듭니다.
+
+    [REGION:lightbox]
+    [![](VRSL_Pawn_Setup_04.png)(w:667)](VRSL_Pawn_Setup_04.png)
+    [/REGION]
+
+    [REGION:caption]
+    클릭하면 원본 이미지를 확인합니다.
+    [/REGION]
+
+1. **디테일 패널** 에서 **Stereo Layer** 섹션을 펼칩니다.
+
+    [REGION:lightbox]
+    [![](VRSL_Pawn_Setup_05.png)(w:667)](VRSL_Pawn_Setup_05.png)
+    [/REGION]
+
+    [REGION:caption]
+    클릭하면 원본 이미지를 확인합니다.
+    [/REGION]
+
+1. **콘텐츠 브라우저** 에서 표시하고자 하는 텍스처를 찾아 클릭하여 선택합니다. 그런 뒤 **폰** 블루프린트로 돌아와 스테레오 레이어 섹션 아래 **텍스처** 입력 옆 작은 **흰색 삼각형** 을 눌러 그 텍스처를 사용하여 스테레오 레이어를 표시하도록 합니다.
+
+    [REGION:lightbox]
+    [![](VRSL_Pawn_Setup_06.png)(w:667)](VRSL_Pawn_Setup_06.png)
+    [/REGION]
+
+    [REGION:caption]
+    클릭하면 원본 이미지를 확인합니다.
+    [/REGION]
+
+1. 다음 **VR 에서 플레이** 버튼을 눌러 프로젝트를 VR 에서 실행합니다. HMD 를 쓰면 텍스처 입력에 지정한 텍스처가 앞에 표시될 것입니다. 아래 비디오처럼 텍스처가 머리를 빨리 움직여도 HMD 를 정확히 따라올 것입니다.
+
+    [OBJECT:EmbeddedVideo]
+        [PARAMLITERAL:width]
+        640
+        [/PARAMLITERAL]
+        [PARAMLITERAL:height]
+        360
+        [/PARAMLITERAL]
+        [PARAMLITERAL:videoid]
+        Eb_kndx6tac
+        [/PARAMLITERAL]
+    [/OBJECT]
+
+    [region:note]
+    프로젝트를 VR 로 봐도 선택한 텍스처가 표시되지 않는 경우, 텍스처 압축 세팅이 올바르게 되어있는지 확인하세요. 사용중인 HMD 에 어떤 세팅을 사용해야 하는지 확실치 않은 경우, 스테레오 레이어 텍스처 압축 세팅 섹션을 참고하세요.
+    [/region]
+
+## 스테레오 레이어 텍스처 압축 세팅
+
+사용중인 HMD 에 따라 텍스처 표시에 사용되는 압축 세팅을 조절해야 할 수 있습니다. 아래에서 여러  HMD 에 스테레오 레이어가 올바르게 표시되도록 하는데 필요한 텍스처 압축 세팅 관련 자세한 정보를 찾아볼 수 있습니다.
+
+[REGION:lightbox]
+[![](VRSL_Texture_Settings.png)(w:667)](VRSL_Texture_Settings.png)
+[/REGION]
+
+[REGION:caption]
+클릭하면 원본 이미지를 확인합니다.
+[/REGION]
+
+|HMD 이름| 필수 텍스처 압축 세팅|
+|---------------|----------------------------------------------------|
+|Oculus Rift| 없음|
+|Gear VR| 없음|
+| HTC Vive| UserInterFace2D (RGBA)|
+|PSVR| 없음|
+
+## 스테레오 레이어 프로퍼티 분석
+
+스테레오 레이어에는 렌더링 방식에 영향을 끼치는 프로퍼티가 다수 있습니다. 다음 테이블은 그 세팅 각각에 대한 분석 및 스테레오 레이어에 끼치는 영향에 대한 설명입니다.
+
+![](VRSL_Prop_Breakdown_00.png)
+
+|세팅 이름| 설명 |
+|---------------|----------------------------------------------------|
+|Live Texture|라이브 텍스처 - 스테레오 레이어 텍스처를 매 프레임 업데이트해야 하는 경우 true 입니다 (씬 캡처, 비디오 등)|
+|Supports Depth|뎁스 지원 - 플랫폼에서 사용가능할 때, 스테레오 레이어가 씬 지오메트리와의 깊이 교차를 지원해야 하는 경우 true 입니다. |
+|No Alpha Channel|알파 채널 없음 - 텍스처가 자신의 알파 채널을 사용하지 않으면 true 입니다 (1.0 으로 대체됩니다).|
+|Texture|텍스처 - 스테레오 레이어에 표시되는 텍스처입니다 (플랫폼에 스테레오 텍스처가 지원되는지입니다. 텍스처가 하나 이상 제공되면, 오른쪽 눈이 됩니다).|
+|Quad Preserve Texture Ratio|쿼드 보존 텍스처 비율 - 쿼드가 내부적으로 설정된 텍스처의 크기에 따라 그 Y 값을 설정해야 하는 경우 true 입니다. |
+|Stereo Layer Type|스테레오 레이어 타입 - 화면의 어디에 어떻게 쿼드를 렌더링할지 지정합니다. |
+|Stereo Layer Shape|스테레오 레이어 셰이프 - 레이어 유형을 지정합니다. 어떤 셰이프는 특정 플랫폼에서만 지원되는 것이 있습니다. |
+|Priority|우선순위 - 모든 스테레오 레이어 사이의 렌더링 우선순위로, 높은 것이 낮은 것 위에 그려집니다. |
+|Left Texture|왼쪽 텍스처 - 스테레오 텍스처가 플랫폼에 지원되는 경우, 스테레오 레이어의 왼쪽 눈에 표시할 텍스처입니다. |
+|Quad Size|쿼드 크기 - 렌더링되는 스테레오 레이어 쿼드의 크기입니다. |
+|UVRect|UV 사각형 - 쿼드 면에 매핑된 UV 좌표입니다. |
+|Cylinder Radius|원통형 반경 - 렌더링된 스테레오 레이어 원통형의 원형 크기입니다. |
+|Cylinder Overly Arc|원통형 오버레이 원호 - 스테레오 레이어 원통형의 원호 각도입니다. |
+|Cylinder Height|원통형 높이 - 스테레오 레이어 원통형의 높이입니다. |

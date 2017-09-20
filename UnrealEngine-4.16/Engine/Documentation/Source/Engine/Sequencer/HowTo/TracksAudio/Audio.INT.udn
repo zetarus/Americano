@@ -1,0 +1,115 @@
+Availability: Public
+Title:Working with Audio Tracks
+Crumbs: %ROOT%, Engine, Engine/Sequencer, Engine/Sequencer/HowTo
+Description:Illustrates how to add Audio Tracks and adjust volume/pitch values through keyframes. 
+Version: 4.15
+SkillLevel: Beginner
+parent:Engine/Sequencer/HowTo
+order:1
+checkpoint: editorqs
+Related: Engine/Sequencer/Overview
+Related: Engine\Sequencer\ReferenceEditor\
+tags:Sequencer
+
+Whether you are looking to score your cinematic with a musical track or want to add sound effects such as impact sounds, voice overs, or others, you'll need to do so with an **Audio Track** inside Sequencer. 
+Sequencer's Audio Track also allows you to adjust the Volume or Pitch of your audio assets at any point during your cinematic through keyframed value changes. 
+
+In this how-to, we add a music track to a sample scene and fade it in over time as well as adjust the pitch during the cinematic. 
+
+## Steps
+
+[REGION:note]
+For this how-to, we are using the **Blueprint Third Person Template** with **Starter Content** enabled. 
+[/REGION]
+
+1.	From the Main Tool Bar click **Cinematics** and **Add Level Sequence**. 
+
+	![](Audio01.png)
+
+1.	In the **Save Asset As** window, choose a save location and save name then click **Save**. 
+
+	![](Audio02.png)	
+
+1.	In the **Level Sequence**, click the **Add** button then select **Audio Track**. 
+
+	![](Audio03.png)
+
+1.	On the **Audio Track**, click the **+** button then search for and add the **Starter_Music_Cue** asset. 
+
+	![](Audio04.png)
+
+	You can click the **Expand** icon to expand out and see your audio sub-tracks. 
+
+	![](Audio05.png)
+
+	You can add additional sub-tracks to the Audio Track by clicking the **+** button and can drag them along the timeline to reposition them where you want in your sequence. 
+
+	![](Audio06.png)
+
+1.	Expand the **Starter_Music_Cue** track, then change the **Volume** and **Pitch Multiplier** values to **0.0** and add keys for both. 
+
+	![](Audio07.png)
+
+	This will turn the Volume to off and the Pitch to low. 
+
+1.	Scrub the Timeline marker ahead to frame **50**, change the **Volume** and **Pitch Multiplier** values to **1.0** and add keys for both. 
+
+	![](Audio08.png)
+
+	This will turn the Volume up to its default value (on) and the Pitch to its default value (not affecting the sound asset). 
+
+1.	You can delete sub-tracks within the Audio Track by clicking on them in the Timeline window, then pressing **Delete** or **Right-click** and **Delete**. 
+
+	![](Audio09.png)
+
+1.	Return the Timeline to **0** then click the **Play** button inside Sequencer to play your sequence. 
+
+	![](Audio10.png)
+
+
+## End Result
+
+When you play the Level Sequence, you will hear the audio fade in and the pitch adjusts as the sequence begins. 
+
+[OBJECT:EmbeddedVideo]
+[PARAMLITERAL:width]
+640
+[/PARAMLITERAL]
+[PARAMLITERAL:height]
+360
+[/PARAMLITERAL]
+[PARAMLITERAL:videoid]
+Tt_fKZnk8I4
+[/PARAMLITERAL]
+[/OBJECT]
+
+While this example is fairly simplified, you can add more keyframes to fade in/out audio at any point during your sequence or adjust the pitch of audio assets as desired. 
+Audio Tracks support either **Sound Cue** or **Sound Wave** assets and can be added by dragging-and-dropping from the **Content Browser** into a Level Sequence or by adding through the **Add** option of an Audio Track. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

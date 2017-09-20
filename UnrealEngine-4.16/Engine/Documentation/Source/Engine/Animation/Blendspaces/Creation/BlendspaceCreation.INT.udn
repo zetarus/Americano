@@ -1,0 +1,48 @@
+Availability:Public
+Title: Creating Blend Spaces
+Crumbs: %ROOT%, Engine, Engine/Animation, Engine/Animation/Blendspaces
+Description:Overview of creating a Blend Space and Blend Space 1D asset for use in Animation Blueprints. 
+Related: Engine\Animation\AnimHowTo\BlendSpace
+Related: Engine/Animation/Blendspaces/Editor
+Related: Engine/Animation/StateMachines
+Related: Engine/Animation/AnimBlueprints
+Related: Engine/Animation/AnimBlueprints/AnimGraph
+version: 4.15
+type:how-to
+tags:Animation
+tags:Animation Blueprint
+tags:Blend Space
+topic-image:createblendspacetopic.png
+
+This page covers how to create both **Blend Space** and **Blend Space 1D** assets as you will need to select a [Skeleton](Engine/Animation/Skeleton) to associate the Blend Space with.
+
+[REGION:note]
+Creating a Blend Space and Blend Space 1D are generally the same, however, [](Engine/Animation/Blendspaces/Editor) slightly differs based on which asset you are working with. 
+[/REGION]
+
+1. In the **Content Browser**, click the **Add New** button (or **Right-click** in the Content Browser) and choose **Animation** > **Blend Space**.
+
+	![](NewBlendSpace.png)
+
+	If you would like to create a **Blend Space 1D**, select the option for Blend Space 1D instead. 
+
+	![](blendspace1dcreate.png)
+
+1. In the **Pick Skeleton** dialog, select the Skeleton the Blend Space should target.
+
+	![](SkeletonList.png)
+
+	Your list of **Skeleton Assets** may look different based on the number of Skeleton Assets you have in your project. 
+
+1.  Enter a name for your new Blend Space asset. 
+
+	![Create Blueprint - Asset Created](bs_create_asset.png)
+
+	The Blend Space is also available to be used in the **Anim Graphs** of Animation Blueprints targeting the same Skeleton as the Blend Space:
+
+	![](AssetBrowserBlendList.png)
+		
+
+
+
+

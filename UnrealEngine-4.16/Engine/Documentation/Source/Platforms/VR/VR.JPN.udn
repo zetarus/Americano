@@ -1,0 +1,68 @@
+﻿INTSourceChangelist:3340158
+Availability:Public
+Title:VR を開発する
+Crumbs:%ROOT%, Platforms
+Description:VR 用プラットフォームの開発に関する情報
+Navigation:platform
+Version:4.9
+Type:landing
+parent:Platforms
+order:2
+
+[VAR:Params]
+[PARAM:image]
+	![%Platforms/VR:title%](%ROOT%/placeholder_topic.png)
+[/PARAM]
+[PARAM:icon]
+	![](%ROOT%/platform_icon.png)(convert:false)
+[/PARAM]
+[PARAM:title]
+	%Platforms/VR:title%
+[/PARAM]
+[PARAM:description]
+	%Platforms/VR:description%
+[/PARAM]
+[PARAM:path]
+	[RELATIVE:Platforms/VR]
+[/PARAM]
+[/VAR]
+
+[VAR:Topic]
+[OBJECT:Topic]
+%params%
+[/OBJECT]
+[/VAR]
+
+[VAR:TopicCompact]
+[OBJECT:TopicCompact]
+%params%
+[/OBJECT]
+[/VAR]
+
+[VAR:Role]
+[OBJECT:Role]
+%params%
+[PARAMLITERAL:id]
+VR
+[/PARAMLITERAL]
+[/OBJECT]
+[/VAR]
+
+
+## はじめよう
+
+[DIR(output:"topic" type:"quick start" tags:"vr")]
+
+## VR 用プラットフォーム
+
+[DIR(end:"1" output:"listbutton" type:"landing" tags:"platform" parent:"Platforms/VR")]
+
+## VR に関するトピックス
+
+[DIR(end:"1" output:"listbutton" parent:"Platforms/VR" tags:"!platform")]
+
+## トレーニング ストリーム
+
+[REGION:topics third]
+[DIR(output:"video" type:"video" tags:"Virtual Reality")]
+[/REGION]

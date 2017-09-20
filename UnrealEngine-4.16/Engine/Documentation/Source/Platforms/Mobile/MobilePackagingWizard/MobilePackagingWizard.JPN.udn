@@ -1,0 +1,224 @@
+﻿INTSourceChangelist:3169600
+Title:モバイル パッケージング ウィザード 
+Description:モバイル パッケージング ウィザードを使って UE4 モバイル プロジェクトのインストール サイズを小さくする
+Crumbs:%ROOT%, Platforms, Platforms/Mobile, Platforms/Mobile/MobilePackagingWizard/
+Availability:Public
+version:4.12
+Parent:Platforms/Mobile
+tags:Mobile
+type:overview
+order:8
+SkillLevel:Intermediate
+Related:Engine/Deployment
+Related:Engine/Deployment/Cooking
+Related:Engine/Deployment/Patching
+Related:Engine/Deployment/UnrealFrontend
+
+
+アンリアル エンジン 4 (UE4) の **モバイル パッケージング ウィザード** は、プロジェクトを App store にアップロードしたいコンテンツだけをパッケージングすることで、モバイル プロジェクトのサイズ削減に役立ちます。残りのコンテンツは、ユーザーがデバイスで初めてゲームを起動する時にクラウドからダウンロードされます。次の文書では、UE4 モバイル プロジェクトでモバイル パッケージング ウィザードを使用する設定方法を説明します。
+
+%Globals:MobileSelect%
+
+##モバイル パッケージング ウィザード ツールの場所
+
+モバイル パッケージング ウィザードを使用するには、以下の操作が必要です。
+
+1. **メイン ツールバー** の **[Window (ウィンドウ)]** オプションをクリックします。 
+
+	![](MPW_Location.png)
+
+1. Windows メニューが表示されたら、**[Project Launcher (プロジェクト起動)]** オプションをクリックしてプロジェクト ランチャーを表示します。
+
+	![](MPW_Project_Launcher.png)
+
+
+[OBJECT:ToggleButtonContent]
+	[PARAMLITERAL:category]
+	プラットフォーム
+	[/PARAMLITERAL]
+	[PARAMLITERAL:id]
+	android
+	[/PARAMLITERAL]
+	[PARAMLITERAL:active]
+	active_button_content
+	[/PARAMLITERAL]
+	[PARAM:content]
+	[INCLUDE:Platforms\Mobile\MobilePackagingWizard#android]
+	[/PARAM]
+[/OBJECT]
+[OBJECT:ToggleButtonContent]
+	[PARAMLITERAL:category]
+	プラットフォーム
+	[/PARAMLITERAL]
+	[PARAMLITERAL:id]
+	ios
+	[/PARAMLITERAL]
+	[PARAMLITERAL:active]
+	[/PARAMLITERAL]
+	[PARAM:content]
+	[INCLUDE:Platforms\Mobile\MobilePackagingWizard#ios]
+	[/PARAM]
+[/OBJECT]
+
+<!--
+[EXCERPT:android]
+## モバイル パッケージング ウィザード プロファイルの設定
+
+モバイル パッケージング ウィザードを使用するためには、プロジェクトのニーズに合ったプロファイルをまず先に新規作成しておく必要あります。次のセクションでは、UE4 モバイル プロジェクト用のカスタム仕様の起動プロファイルを作成するための手順を説明します。
+
+1. **[Custom Launch Profiles]** の横の小さな白い三角をクリックして、リストから **[Minimal Android APK + DLC�]** オプションを選択します。
+
+	![](MPW_Select_Android_Option.png)
+
+	(#bookmark1)
+1. **[Minimal Android APK + DLC]** パッケージング ウィンドウが表示されたら、**[Browse (ブラウス)]** ボタンをクリックして、パッケージ コンテンツの保存場所を選択します。
+
+	![](MPW_Press_Browse.png)
+
+1. パッケージング済みコンテンツの保存場所を選択したら **[Next]** ボタンを押して引き続きパッケージングを行います。
+
+	![](MPW_Press_Next.png)
+
+1. **[Distributable APK]** メニューで **[Build Configuration (ビルド コンフィギュレーション)]** を **[Development]** に設定して使用したいマップを選択し、完了したら **[Next]** ボタンを押します。 
+
+	![](MPW_Dis_APK.png)
+
+	[region:note]
+	選択したマップを参照するコンテンツのみが、Play Store へアップロードするためのアプリケーションへパッケージングされます。通常、**UMG** ユーザーインターフェースで Level ブループリントを含むシングルマップのみを選択すれば、**BuildPatchServices** コードが始まってダウンロードの進捗 (適用されるエラー状態) が表示されます。
+	[/region]
+
+1. **[Downloadable Content (ダウンロード可能なコンテンツ)]** メニューで、ダウンロードが必要なマップでアプリケーションがサポートする Android テクスチャ フォーマットを選択します。次に **[Create Profile (プロファイル作成)]** ボタンを押して、Custom Launch Profile を新規作成します。
+
+	![](MPW_Downloadable_Content.png)
+
+## アプリケーションのビルド 
+
+モバイル パッケージング ウィザード用のすべてのオプションが設定され Custom Launch Profile へ保存されたのでプロファイルを実行してプロジェクトをパッケージングすることができます。次のセクションでは、UE4 プロジェクトをモバイル パッケージング ウィザードが正常にパッケージングするために必要な手順を説明します。
+
+1. プロジェクト ランチャーがまだ開いていない場合は開いて、**[Custom Launch Profile]** セクションのプロジェクト ランチャーの下の部分を見ます。このセクションには、プロジェクト名から始まり **Android APK** または **Android DLC** のいずれかが続くプロファイルが 2 つ入っているはずです。 
+
+	![](MPW_Custom_Launch_Profiles.png)
+
+	[region:note]
+	プロジェクト ランチャーを初めて開くと、[Custom Launch Profiles] セクションにはデフォルトで 2 つのアイテムが入っています。このアイテムを削除するのは、削除したいアイテムを右クリックして **[Delete (削除)]** オプションをクリックします。
+	[/region]
+
+1. [**APK** Profile] オプションの **[Launch this Profile (このプロファイルを起動)]** ボタンをクリックしてパッケージングを開始します。 
+
+	![](MPW_Launch_APK_Profile.png)
+
+	[region:warning]
+	DLC をビルドする前にプロジェクトのファイルをパッケージしなければなりません。 <!--先に DLC をビルドしてもプロジェクトはパックされません。-->
+	[/region]
+
+1. **[Launch this Profile (このプロファイルを起動)]** ボタンを押すと、プロジェクト ランチャーがパッケージングを開始します。[Project Launcher] ウィンドウでパッケージ処理の進捗を確認できます。
+
+	![](MPW_Packaging_Progress.png)
+
+1. パッケージングが終了したら **[Done (完了)]** ボタンをクリックしてプロジェクト ランチャーをロードします。
+
+	![](MPW_Packaging_Completed.png)
+
+## DLC のビルド
+
+App ストアから最初のダウンロード処理が完了したら、App をモバイル デバイスにインストールした後にクラウドからダウンロードするコンテンツをクックします。 
+
+1. プロジェクト ランチャーの **[Custom Launch Profiles]** セクションでプロジェクトの **[DLC]** オプションを開きます。プロジェクトの DLC オプションの中から **[Launch this Profile]** ボタンを押してDLC パッケージ処理を開始します。 
+
+	![](MPW_Build_DLC.png)
+
+1. **[Launch this Profile (このプロファイルを起動)]** ボタンを押すと、プロジェクト ランチャーがプロジェクトの DLC のビルドを開始します。DLC のビルドが完了したら、**[Done (完了)]** ボタンを教えて続けます。 
+
+	![](MPW_DLC_Completed.png)
+
+## パッケージングの結果 
+
+ビルドがすべて完了したら [モバイル パッケージング ウィザード プロファイルの設定] セクションの [2](#bookmark1) で指定したフォルダを開きます。以下の 2 つのフォルダがあるはずです。
+
+![](MPW_App_DLC_Location.png)
+
+フォルダには、ユーザーがモバイル デバイス上にアプリケーションをダウンロードおよびインストールした後にダウンロードされるように設定されているプロジェクトの様々な構成要素があります。
+
+[/EXCERPT:android]
+
+
+[EXCERPT:ios]
+## モバイル パッケージング ウィザード プロファイルの設定
+
+モバイル パッケージング ウィザードを使用するためには、プロジェクトのニーズに合ったプロファイルをまず先に新規作成しておく必要あります。次のセクションでは、UE4 モバイル プロジェクト用のカスタム仕様の起動プロファイルを作成するための手順を説明します。
+
+1. **[Custom Launch Profiles]** の横の小さな白い三角をクリックして、リストから **[Minimal IOS App + DLC�]** オプションを選択します。
+
+	![](MPW_Select_iOS_Option.png)
+
+	(#bookmark1)
+1. **[Minimal IOS App + DLC]** パッケージング ウィンドウが表示されたら、**[Browse (ブラウス)]** ボタンをクリックして、パッケージ コンテンツの保存場所を選択します。
+
+	![](MPW_iOS_Press_Browse_Button.png)
+
+1. パッケージング済みコンテンツの保存場所を選択したら **[Next]** ボタンを押して引き続きパッケージングを行います。
+
+	![](MPW_iOS_Press_Next.png)
+
+1. **[Distributable Application]** メニューで **[Build Configuration (ビルド コンフィギュレーション)]** を **[Development]** に設定して使用したいマップを選択し、完了したら **[Next]** ボタンを押します。 
+
+	![](MPW_Dis_iOS.png)
+
+	[region:note]
+	選択したマップを参照するコンテンツのみが、App Store へアップロードするためのアプリケーションへパッケージングされます。通常、**UMG** ユーザーインターフェースで Level ブループリントを含むシングルマップのみを選択すれば、**BuildPatchServices** コードが始まってダウンロードの進捗 (適用されるエラー状態) が表示されます。
+	[/region]
+
+1. **[Downloadable Content (ダウンロード可能なコンテンツ)]** メニューで、ダウンロードするマップを選択し、**[Create Profile (プロファイル作成)]** ボタンを押して、Custom Launch Profile を新規作成します。
+
+	![](MPW_Downloadable_Content_iOS.png)
+
+## アプリケーションのビルド 
+
+モバイル パッケージング ウィザード用のすべてのオプションが設定され Custom Launch Profile へ保存されたのでプロファイルを実行してプロジェクトをパッケージングすることができます。次のセクションでは、UE4 プロジェクトをモバイル パッケージング ウィザードが正常にパッケージングするために必要な手順を説明します。
+
+1. プロジェクト ランチャーがまだ開いていない場合は開いて、**[Custom Launch Profile]** セクションのプロジェクト ランチャーの下の部分を見ます。このセクションには、プロジェクト名から始まり **IOS App** または **IOS DLC]** のいずれかが続くプロファイルが 2 つ入っているはずです。 
+
+	![](MPW_Custom_Launch_Profiles_iOS.png)
+
+	[region:note]
+	プロジェクト ランチャーを初めて開くと、[Custom Launch Profiles] セクションにはデフォルトで 2 つのアイテムが入っています。このアイテムを削除するのは、削除したいアイテムを右クリックして **[Delete (削除)]** オプションをクリックします。
+	[/region]
+
+1. [**IOS App** Profile] オプションの **[Launch this Profile (このプロファイルを起動)]** ボタンをクリックしてパッケージングを開始します。 
+
+	![](MPW_Launch_APK_Profile_iOS.png)
+
+	[region:warning]
+	DLC をビルドする前にプロジェクトのファイルをパッケージしなければなりません。 <!--先に DLC をビルドしてもプロジェクトはパックされません。-->
+	[/region]
+
+1. **[Launch this Profile (このプロファイルを起動)]** ボタンを押すと、プロジェクト ランチャーがパッケージングを開始します。[Project Launcher] ウィンドウでパッケージ処理の進捗を確認できます。
+
+	![](MPW_Packaging_Progress_iOS.png)
+
+1. パッケージングが終了したら **[Done (完了)]** ボタンをクリックしてプロジェクト ランチャーをロードします。
+
+	![](MPW_Packaging_Completed_iOS.png)
+
+## DLC のビルド
+
+App ストアから最初のダウンロード処理が完了したら、App をモバイル デバイスにインストールした後にクラウドからダウンロードするコンテンツをクックします。 
+
+1. プロジェクト ランチャーの **[Custom Launch Profiles]** セクションでプロジェクトの **[DLC]** オプションを開きます。プロジェクトの DLC オプションの中から **[Launch this Profile]** ボタンを押してDLC パッケージ処理を開始します。 
+
+	![](MPW_Build_DLC_iOS.png)
+
+1. **[Launch this Profile (このプロファイルを起動)]** ボタンを押すと、プロジェクト ランチャーがプロジェクトの DLC のビルドを開始します。DLC のビルドが完了したら、**[Done (完了)]** ボタンを教えて続けます。 
+
+	![](MPW_DLC_Completed_iOS.png)
+
+## パッケージングの結果 
+
+ビルドがすべて完了したら [モバイル パッケージング ウィザード プロファイルの設定] セクションの [2](#bookmark1) で指定したフォルダを開きます。以下の 2 つのフォルダがあるはずです。
+
+![](MPW_App_DLC_Location.png)
+
+フォルダには、ユーザーがモバイル デバイス上にアプリケーションをダウンロードおよびインストールした後にダウンロードされるように設定されているプロジェクトの様々な構成要素があります。
+
+[/EXCERPT:ios]
+-->
