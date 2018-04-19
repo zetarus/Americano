@@ -1,0 +1,14 @@
+<settings>
+	<include file="paths.xml" />
+	<include file="attributes.xml" />
+	<include file="abilities.xml" />
+	<include file="maps.xml" />
+	<include file="equip.xml" />
+	<include file="items.xml" />
+	<include file="monsters.xml" />
+	<include file="npcs.xml" />
+	<include file="emotes.xml" />
+	<include file="status-effects.xml" />
+	<include file="hair.xml" />
+	<include file="units.xml" />
+</settings>

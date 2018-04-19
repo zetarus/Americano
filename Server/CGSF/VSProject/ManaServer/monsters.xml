@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2009 The Mana World Development Team
+monsters.xml parameters explanation:
+This file is used to describe the monsters the players will see all around the world.
+It can be used by both client and server, but some parameters are specific.
+
+id [integer]:      It is the id of the monster. This parameter has to be unique for each monster.
+                   The system will use the monster id to refer on it in many ways.
+name [string]:     Tells the monster name. (Used to ease configuration ease on server.)
+                   but displayed to players on the client side.
+sprite [xml file]: Tells the xml file used to display the monster sprites. (Client only).
+sound <TAG>:       This tag is used by the client to know which sound to play at what event.
+  event [string]:  Tells the event at which the corresponding sound should be played. ('die', 'miss', 'hit', 'strike' are some examples.)
+  <INNER>[string]: The ogg file to be played
+drop <TAG>:        Tells what kind of item the monster can drop. See items.xml to get the id correspondence.
+  item [integer]:  Tells the drop item Id.
+  percent[float]:  Tells the chance (8.0 = 8%) to see the drop after monster's death.
+attributes <TAG>:  Tells all the monsters attribute. These attribute, as for items, should not be left
+                   in players hands.
+  hp [integer]:    The monster hit points.
+  size[integer]:   The monster maximal amplitude in pixels. Used to compute player's hit area.
+  speed[float]:    The monster's speed in tiles per second.
+                       (A tile is the smallest square map unit: by default, a tile is 32 pixel long.)
+  mutation[integer]:      The mutation indicates the amplitude in percent where attributes get modified with.
+                          For instance, with a mutation of 50, each attribute can be altered to become 100% to 149% of what they are.
+  element[string]:        Tells to which element the weakness is. ('fire', 'earth', 'ice', 'metal' are some examples.)
+  factor[float]:          Tells the defense against an element is reduced in percent. (A value of 0.7 indicates that the defense is lowered by 30%).
+-->
+
+<monsters>
+
+    <monster id="1" name="Maggot" targetCursor="small">
+        <sprite>monsters/monster-maggot.xml</sprite>
+        <sound event="hit">monsters/maggot/maggot-hit1.ogg</sound>
+        <sound event="hit">monsters/maggot/maggot-hit2.ogg</sound>
+        <sound event="miss">monsters/maggot/maggot-miss1.ogg</sound>
+        <sound event="die">monsters/maggot/maggot-dying1.ogg</sound>
+        <drop item="1" percent="50"/>
+        <drop item="2" percent="15"/>
+        <drop item="3" percent="2.8"/>
+        <drop item="4" percent="0.7"/>
+        <attributes
+            size="4"
+            mutation="50"
+            />
+        <attribute id="HP" value="20" />
+        <attribute id="Max HP" value="20" />
+        <attribute id="Movement speed" value="2" />
+        <ability id="2" />
+        <!-- average stroll- and track range-->
+    </monster>
+
+    <monster id="2" name="Scorpion">
+        <sprite>monsters/monster-scorpion.xml|#4d422d,826242,d8c282,ffffff</sprite>
+        <sound event="hit">monsters/scorpion/scorpion-hit1.ogg</sound>
+        <sound event="hit">monsters/scorpion/scorpion-hit2.ogg</sound>
+        <sound event="hit">monsters/scorpion/scorpion-hit3.ogg</sound>
+        <sound event="hit">monsters/scorpion/scorpion-hit4.ogg</sound>
+        <sound event="miss">monsters/scorpion/scorpion-miss1.ogg</sound>
+        <drop item="1" percent="7"/>
+        <drop item="2" percent="1"/>
+        <drop item="5" percent="0.5"/>
+        <drop item="9" percent="7"/>
+        <attributes
+            size="8"
+            />
+        <attribute id="HP" value="20" />
+        <attribute id="Max HP" value="20" />
+        <attribute id="Movement speed" value="6" />
+        <!-- doesn't move much, but attacks when you are comming too close. -->
+        <behavior
+            aggressive="true"
+            cowardly="false"
+            track-range="2"
+            stroll-range="64"
+            attack-distance="64"
+            />
+    </monster>
+
+    <monster id="3" name="Red Scorpion">
+        <sprite>monsters/monster-scorpion.xml|#791d0a,cd5d27,f28d54,ffffff</sprite>
+        <sound event="hit">monsters/scorpion/scorpion-hit1.ogg</sound>
+        <sound event="hit">monsters/scorpion/scorpion-hit2.ogg</sound>
+        <sound event="hit">monsters/scorpion/scorpion-hit3.ogg</sound>
+        <sound event="hit">monsters/scorpion/scorpion-hit4.ogg</sound>
+        <sound event="miss">monsters/scorpion/scorpion-miss1.ogg</sound>
+        <drop item="2" percent="20"/>
+        <drop item="3" percent="1"/>
+        <drop item="4" percent="5"/>
+        <drop item="6" percent="0.1"/>
+        <drop item="9" percent="5.4"/>
+        <attributes
+            size="8"
+            gender="female"
+            />
+        <attribute id="HP" value="20" />
+        <attribute id="Max HP" value="20" />
+        <attribute id="Movement speed" value="6" />
+        <attribute id="Monster attack speed" value="10" />
+        <ability id="2" />
+    </monster>
+
+    <monster id="4" name="Green Slime">
+        <sprite>monsters/monster-slime.xml|#72982c,ffffff</sprite>
+        <sound event="hit">monsters/slime/slime-hit1.ogg</sound>
+        <drop item="1" percent="2"/>
+        <drop item="2" percent="1"/>
+        <drop item="3" percent="1"/>
+        <drop item="4" percent="1"/>
+        <drop item="7" percent="1.9"/>
+        <drop item="8" percent="0.1"/>
+        <drop item="9" percent="7.5"/>
+        <attributes
+            size="4"
+            />
+        <attribute id="HP" value="200" />
+        <attribute id="Max HP" value="200" />
+        <attribute id="Movement speed" value="1" />
+        <attribute id="Monster attack speed" value="10" />
+        <ability id="2" />
+    </monster>
+</monsters>
+

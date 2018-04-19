@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="40" height="40" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="Desert" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="../tilesets/tmw_desert_spacing.png" width="265" height="199"/>
+ </tileset>
+ <tileset firstgid="49" name="Collision" tilewidth="32" tileheight="32">
+  <image source="../tilesets/collision.png" width="64" height="32"/>
+ </tileset>
+ <layer name="Ground" width="40" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+2Y2Q6CMBBFqzy4Ja6Ja1QUF9yA//86x0gDmTTQVjqOhocTwZT0eGeECRshxMYhfWAADB3vY0Ok8Nsy8PqV/E7AFJgBcwY+KhpAE/By37mq8QJYGrACOkAX6BFksQP2BgQO/cICvwNwBY5f9CvKL9DMk8LvxNAvQV7Y7y7e/f8g9sM9h8/L8sJ9WYWf6n8QovzkcZkfzrWq/M7oXPqY5ue6vtgTc0nrp8utAr9WSltkz6IiPM11kvWHfgORzRfytxbR01ynus7Gbyay+WIEjEuYaK5TXeey96jxhXrO4eTpE/rYzGYUXlH6qXPvzD9/gor210XH7+WUpGsp/WKGfrivufnZ1Dc/X1D5xQZ+OEtu+alqzdmPMj+b2YzS71/wGTj8Cjgrbu8G6xrX1HzGE2RW0EoAGQAA
+  </data>
+ </layer>
+ <layer name="Fringe" width="40" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3BAQ0AAADCoPdPbQ8HFAAAAAAAwJcBSxPzAQAZAAA=
+  </data>
+ </layer>
+ <layer name="Collision" width="40" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3XSw6AMAgEUM7E/Q/n3ojFT2CYztvVmHRA0kazfXnymVyb2qupuZnoG/wDsY9uuLnu1h2iO8gX71SK+tad6wwtj+wDbfaiMxgpJ+o9UYmt/o56nuxZle/tPmzz8BVzP5hrE0yauTzE/8WMKTlFuh1VDf7QABkAAA==
+  </data>
+ </layer>
+ <objectgroup name="Objects" width="40" height="40">
+  <object name="Main script" type="SCRIPT" x="16" y="25" width="167" height="10">
+   <properties>
+    <property name="FILENAME" value="scripts/maps/desert.lua"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
