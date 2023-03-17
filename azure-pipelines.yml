@@ -13,15 +13,15 @@ steps:
   displayName: 'Run a one-line script'
   -task: Maven@4
   
-   inputs:
-     mavenPomFile: 'pom.xml'
-     mavenOptions: '-Xmx3072m'
-     javaHomeOption: 'JDKVersion'
-     jdkVersionOption: '1.11'
-     jdkArchitectureOption: 'x64'
-     publishJUnitResults: false
-     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-     goals: 'package'
+ inputs:
+  mavenPomFile: 'pom.xml'
+  mavenOptions: '-Xmx3072m'
+  javaHomeOption: 'JDKVersion'
+  jdkVersionOption: '1.11'
+  jdkArchitectureOption: 'x64'
+  publishJUnitResults: false
+  testResultsFiles: '**/surefire-reports/TEST-*.xml'
+  goals: 'package'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
